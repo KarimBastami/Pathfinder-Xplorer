@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../../assets/fonts/Outfit.ttf");
+}
+
+:root {
+
+/* ############### */
+/*      Fonts      */
+/* ############### */
+
+--font-primary: "Outfit", sans-serif;
+
+/* ############### */
+/*    Font Sizes   */
+/* ############### */
+
+  --midget: 0.625rem;
+  --dwarf: 0.75rem;
+  --shrimp: 0.875rem;
+  --normal: 1rem;
+  --h3: 1.25rem;
+  --h2: 1.5rem;
+  --h1: 2rem;
+  --chungus: 2.5rem;
+  --big-chungus: 3.5rem;
+  --giant-chungus: 4.5rem;
+  --humongus-chungus: 5.5rem;
+
+/* ############### */
+/*      Theme      */
+/* ############### */
+
+  --neutral: #e5e5e5;
+  --dark-neutral: rgb(17 24 39);
+  --primary: #1b1c1e;
+  --dark-primary: #f5f5f5;
+  --accent: rgb(20 184 166);
+
+}

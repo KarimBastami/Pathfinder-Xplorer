@@ -10,7 +10,11 @@ export default withMT({
   ],
 
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'outfit' : ['Outfit', 'sans-serif']
+      },
+    },
 
     fontSize: {
       "midget": "0.625rem",
