@@ -27,12 +27,10 @@ function Navbar() {
           </div>
 
           <div className="flex gap-x-4 items-center text-shrimp">
-            <div className="w-52">
-              <Select label="Select Algorithm" className="">
-                <Option>Dijkstra</Option>
-                <Option>A*</Option>
-              </Select>
-            </div>
+            <Select label="Select Algorithm" className="">
+              <Option>Dijkstra</Option>
+              <Option>A*</Option>
+            </Select>
 
             <button className="btn-custom btn-scale">Run</button>
             <button className="btn-custom btn-scale">Reset</button>
