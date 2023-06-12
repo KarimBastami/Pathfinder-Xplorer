@@ -1,0 +1,8 @@
+#navbar{
+  box-shadow: var(--nav-shadow-1) 0px 1px 2px 0px,
+              var(--nav-shadow-2) 0px 2px 6px 2px;
+}
+
+#navbar ul {
+  cursor: pointer;
+}

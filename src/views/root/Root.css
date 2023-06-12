@@ -35,10 +35,14 @@
 /*      Theme      */
 /* ############### */
 
-  --neutral: #e5e5e5;
-  --primary: #1b1c1e;
-  --accent: rgb(20 184 166);
-  
-  --dark-neutral: rgb(17 24 39);
-  --dark-primary: #f5f5f5;
+  --nav-shadow-1: rgba(20, 184, 166, 0.7);
+  --nav-shadow-2: rgba(20, 184, 166, 0.15);
+
+  --neutral: #fcfcfc; 
+  --accent: #5bcdc1;
+
+  --text-primary: #1b1c1e;
+  --text-secondary: #e5e5e5;
+
+  --dark-neutral: #0a1628;
 }
