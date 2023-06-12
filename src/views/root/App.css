@@ -13,7 +13,7 @@
 
 body {
   background: var(--neutral);
-  color: var(--primary);
+  color: var(--text-primary);
   font-family: var(--font-primary);
   font-size: var(--normal);
   font-weight: 400;
@@ -26,10 +26,9 @@ body {
 
 
 .btn-custom {
-  font-weight: var(--font-medium);
   background: var(--accent);
   border-radius: 0.75rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.5rem;
 }
 
 
@@ -47,7 +46,7 @@ body {
 }
 
 .btn-scale:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* ################ */
@@ -59,7 +58,7 @@ body {
 .underline-lr::after {
   content: "";
   position: absolute;
-  background-color: var(--primary);
+  background-color: var(--accent);
   transition: width ease 300ms;
   height: 2px;
   width: 0;

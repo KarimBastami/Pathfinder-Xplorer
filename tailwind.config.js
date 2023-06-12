@@ -12,15 +12,17 @@ export default withMT({
   theme: {
     extend: {
       fontFamily: {
-        'outfit' : ['Outfit', 'sans-serif']
+        'primary' : ['Outfit', 'sans-serif']
       },
 
       colors: {
-        neutral: "#e5e5e5",
-        primary: "#1b1c1e",
+        neutral: "#fcfcfc",
         accent: "rgb(20 184 166)",
-        dark_neutral: "rgb(17 24 39)",
-        dark_primary: "#f5f5f5",
+
+        tprimary: "#1b1c1e",
+        tsecondary: "#e5e5e5",
+        
+        dneutral: "#0a1628",
       }
     },
 
