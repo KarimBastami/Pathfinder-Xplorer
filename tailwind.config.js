@@ -14,6 +14,14 @@ export default withMT({
       fontFamily: {
         'outfit' : ['Outfit', 'sans-serif']
       },
+
+      colors: {
+        neutral: "#e5e5e5",
+        primary: "#1b1c1e",
+        accent: "rgb(20 184 166)",
+        dark_neutral: "rgb(17 24 39)",
+        dark_primary: "#f5f5f5",
+      }
     },
 
     fontSize: {

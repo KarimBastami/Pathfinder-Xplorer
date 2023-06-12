@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, createContext } from "react"
-import createGrid from "../utils/StartingGrid"
+import { createGrid } from "../utils/StartingGrid"
 
 const GridContext = createContext()
 
