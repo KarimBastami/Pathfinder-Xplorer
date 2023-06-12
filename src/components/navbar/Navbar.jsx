@@ -1,6 +1,8 @@
 import "./Navbar.css"
 import { Select, Option } from "@material-tailwind/react";
-
+import { HiOutlineLocationMarker } from "react-icons/hi"
+import { BiTargetLock } from "react-icons/bi"
+import { TbWall, TbWeight } from "react-icons/tb"
 
 function Navbar() {
   return (
@@ -11,30 +13,33 @@ function Navbar() {
 
           <div id="nav-links" className="text-shrimp">
             <ul className="flex gap-x-8">
-              <li className="underline-lr">
+              <li>
+                <HiOutlineLocationMarker className="text-h3 mx-auto mb-1" />
                 Set Start
               </li>
-              <li className="underline-lr">
+              <li>
+                <BiTargetLock className="text-h3 mx-auto mb-1" />
                 Set Target
               </li>
-              <li className="underline-lr">
+              <li>
+                <TbWall className="text-h3 mx-auto mb-1" />
                 Add Wall
               </li>
-              <li className="underline-lr">
+              <li>
+                <TbWeight className="text-h3 mx-auto mb-1" />
                 Add Weight
               </li>
             </ul>
           </div>
 
           <div className="flex gap-x-4 items-center text-shrimp">
-            <Select label="Select Algorithm" className="">
+            <Select color="teal" label="Select Algorithm">
               <Option>Dijkstra</Option>
               <Option>A*</Option>
             </Select>
 
             <button className="btn-custom btn-scale">Run</button>
             <button className="btn-custom btn-scale">Reset</button>
-
           </div>
         </div>
       </div>
