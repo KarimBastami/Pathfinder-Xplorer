@@ -41,6 +41,10 @@ export const GridProvider = ({ children }) => {
     mode === "weight" ? setMode(null) : setMode("weight")
   }
 
+  const handleAlgoChange = (e) => {
+    setAlgorithm(e)
+  }
+
   const resetGrid = () => {
     setGrid(createBaseGrid())
   }
@@ -61,7 +65,7 @@ export const GridProvider = ({ children }) => {
           setModeWall,
           setModeWeight,
           algorithm,
-          setAlgorithm,
+          handleAlgoChange,
           grid,
           setGrid,
           editFlag,
