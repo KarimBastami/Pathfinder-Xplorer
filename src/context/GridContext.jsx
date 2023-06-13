@@ -25,9 +25,27 @@ export const GridProvider = ({ children }) => {
   const targetingCell = useRef(targetCell)
 
 
+  const setModeStart = () => { 
+    mode === "start" ? setMode(null) : setMode("start")
+  }
+
+  const setModeTarget = () => { 
+    mode === "target" ? setMode(null) : setMode("target")
+  }
+
+  const setModeWall = () => { 
+    mode === "wall" ? setMode(null) : setMode("wall")
+  }
+
+  const setModeWeight = () => { 
+    mode === "weight" ? setMode(null) : setMode("weight")
+  }
+
   const resetGrid = () => {
     setGrid(createBaseGrid())
   }
+
+
 
   useEffect(() => {
     resetGrid()
@@ -38,7 +56,10 @@ export const GridProvider = ({ children }) => {
     <GridContext.Provider 
         value={{
           mode,
-          setMode,
+          setModeStart,
+          setModeTarget,
+          setModeWall,
+          setModeWeight,
           algorithm,
           setAlgorithm,
           grid,
