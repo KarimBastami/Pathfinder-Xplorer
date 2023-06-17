@@ -22,7 +22,7 @@ export const createGrid = (width, height, startCell, targetCell) => {
   }
 
   grid[yStart][xStart].isStart = true
-  grid[yTarget ][xTarget ].isTarget = true
+  grid[yTarget][xTarget].isTarget = true
 
   return grid
 }

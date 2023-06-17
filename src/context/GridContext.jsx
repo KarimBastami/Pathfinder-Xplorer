@@ -3,16 +3,20 @@ import { createGrid } from "../utils/StartingGrid"
 
 const GridContext = createContext()
 
-const gridWidth = 50
-const gridHeight = 25
-const startCell = {x: 25, y: 12}
-const targetCell = {x: 48, y: 23}
-
-const createBaseGrid = () => {
-  createGrid(gridWidth, gridHeight, startCell, targetCell)
-}
-
 export const GridProvider = ({ children }) => {
+
+  const gridWidth = 40
+  const gridHeight = 20
+  const startCell = {x: 10, y: 10}
+  const targetCell = {x: 35, y: 16}
+  const startingCell = useRef(startCell)
+  const targetingCell = useRef(targetCell)
+
+  const createBaseGrid = () => {
+    return createGrid(gridWidth, gridHeight, startCell, targetCell)
+  }
+
+  // ------------------------------------------------------------------
 
   const [mode, setMode] = useState(null)
   const [algorithm, setAlgorithm] = useState(null)
@@ -21,9 +25,7 @@ export const GridProvider = ({ children }) => {
   const [run, setRun] = useState(false)
   const [restart, setRestart] = useState(false)
 
-  const startingCell = useRef(startCell)
-  const targetingCell = useRef(targetCell)
-
+  // ------------------------------------------------------------------
 
   const setModeStart = () => { 
     mode === "start" ? setMode(null) : setMode("start")
@@ -67,6 +69,7 @@ export const GridProvider = ({ children }) => {
   return ( 
     <GridContext.Provider 
         value={{
+          gridWidth,
           mode,
           setModeStart,
           setModeTarget,
