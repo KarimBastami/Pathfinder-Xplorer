@@ -45,6 +45,14 @@ export const GridProvider = ({ children }) => {
     setAlgorithm(e)
   }
 
+  const handleRestartPress = () => {
+    setRestart(!restart)
+  }
+
+  const handleRunPress = () => {
+    setRun(!run)
+  }
+
   const resetGrid = () => {
     setGrid(createBaseGrid())
   }
@@ -71,9 +79,9 @@ export const GridProvider = ({ children }) => {
           editFlag,
           setEditFlag,
           run,
-          setRun,
+          handleRunPress,
           restart,
-          setRestart,
+          handleRestartPress,
           startingCell,
           targetingCell
         }}>

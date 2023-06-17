@@ -1,12 +1,13 @@
 import "./Navbar.css"
 
-import { Select, Option } from "@material-tailwind/react";
+import { useContext } from "react"
+
+import { Select, Option } from "@material-tailwind/react"
 import { HiOutlineLocationMarker } from "react-icons/hi"
 import { BiTargetLock } from "react-icons/bi"
 import { TbWall, TbWeight } from "react-icons/tb"
 
-import GridContext from "../../context/GridContext";
-import { useContext } from "react";
+import GridContext from "../../context/GridContext"
 
 function Navbar() {
 
@@ -17,10 +18,8 @@ function Navbar() {
           setModeWeight,
           algorithm, 
           handleAlgoChange,
-          run,
-          setRun,
-          restart,
-          setRestart 
+          handleRunPress,
+          handleRestartPress
         } = useContext(GridContext)
   
   const selectStart = mode === "start" ? "selected" : ""
@@ -64,8 +63,8 @@ function Navbar() {
               <Option value="a*">A*</Option>
             </Select>
 
-            <button className="btn-custom btn-scale">Run</button>
-            <button className="btn-custom btn-scale">Reset</button>
+            <button className="btn-custom btn-scale" onClick={handleRunPress}>Run</button>
+            <button className="btn-custom btn-scale" onClick={handleRestartPress}>Reset</button>
           </div>
         </div>
       </div>
