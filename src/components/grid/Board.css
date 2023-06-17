@@ -15,3 +15,7 @@
   align-items: center;
   background: var(--neutral);
 }
+
+.wall {
+  background: var(--dark-neutral) !important
+}

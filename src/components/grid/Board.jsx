@@ -4,13 +4,20 @@ import GridContext from "../../context/GridContext"
 
 import { HiOutlineLocationMarker } from "react-icons/hi"
 import { BiTargetLock } from "react-icons/bi"
+import { TbWeight } from "react-icons/tb"
 import { useState, useContext, useRef } from "react"
-
+import { editBoard } from "../../utils/EditBoard"
 
 function Board() {
   
   const { grid,
+          setGrid,
           gridWidth,
+          editFlag,
+          setEditFlag,
+          mode,
+          startingCell,
+          targetingCell
         } = useContext(GridContext)
 
   // ---------------------------------------------------------------
@@ -46,10 +53,19 @@ function Board() {
           
               gridCell.isWall ? classList.push("wall") : ""
           
-              return <div key={i} ref={ref} className={classList.join(" ")}>
-                {gridCell.isStart ? <HiOutlineLocationMarker className="text-h2" /> : null}
-                {gridCell.isTarget ? <BiTargetLock className="text-h2" /> : null}
-              </div>
+              return (
+                <div key={i} 
+                     ref={ref} 
+                     className={classList.join(" ")}
+                     onMouseDown={() => setEditFlag(true)}
+                     onMouseUp={() => setEditFlag(false)}
+                     onMouseMove={() => editBoard(grid, setGrid, mode, editFlag, startingCell, targetingCell, gridCell, x, y )}>
+
+                  {gridCell.isStart ? <HiOutlineLocationMarker className="text-h2" /> : null}
+                  {gridCell.isTarget ? <BiTargetLock className="text-h2" /> : null}
+                  {gridCell.weight > 1 ? <TbWeight className="text-h2" /> : null}
+                </div>
+              )
             })
           }
         </div>
