@@ -1,5 +1,9 @@
 import "./Board.css"
+
 import GridContext from "../../context/GridContext"
+
+import { HiOutlineLocationMarker } from "react-icons/hi"
+import { BiTargetLock } from "react-icons/bi"
 import { useState, useContext, useRef } from "react"
 
 
@@ -42,7 +46,10 @@ function Board() {
           
               gridCell.isWall ? classList.push("wall") : ""
           
-              return <div key={i} ref={ref} className={classList.join(" ")}></div>
+              return <div key={i} ref={ref} className={classList.join(" ")}>
+                {gridCell.isStart ? <HiOutlineLocationMarker className="text-h2" /> : null}
+                {gridCell.isTarget ? <BiTargetLock className="text-h2" /> : null}
+              </div>
             })
           }
         </div>

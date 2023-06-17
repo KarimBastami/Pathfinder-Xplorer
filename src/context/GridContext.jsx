@@ -5,10 +5,10 @@ const GridContext = createContext()
 
 export const GridProvider = ({ children }) => {
 
-  const gridWidth = 40
+  const gridWidth = 45
   const gridHeight = 20
   const startCell = {x: 10, y: 10}
-  const targetCell = {x: 35, y: 16}
+  const targetCell = {x: 25, y: 16}
   const startingCell = useRef(startCell)
   const targetingCell = useRef(targetCell)
 
