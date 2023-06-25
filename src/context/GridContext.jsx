@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, createContext } from "react"
+import { useState, useRef, createContext } from "react"
 import { createGrid } from "../utils/StartingGrid"
 
 const GridContext = createContext()
@@ -16,11 +16,31 @@ export const GridProvider = ({ children }) => {
     return createGrid(gridWidth, gridHeight, startRef.current, targetRef.current)
   }
 
+  const createRefGrid = (_grid) => {
+    let refArray = []
+    
+    _grid.forEach((row) => {
+      row.forEach(() => {
+        refArray.push(useRef())
+      })
+    });
+
+    return refArray
+  }
+
+  const resetRefs = (_gridRefs) => {
+    _gridRefs.forEach((ref) => {
+      const refNode = ref.current
+      refNode.classList.remove("visited")      
+    })
+  }
+
   // ------------------------------------------------------------------
 
   const [mode, setMode] = useState(null)
   const [algorithm, setAlgorithm] = useState(null)
   const [grid, setGrid] = useState(createBaseGrid())
+  const [gridRefs, setGridRefs] = useState(createRefGrid(grid))
   const [editFlag, setEditFlag] = useState(false)
   const [run, setRun] = useState(false)
 
@@ -54,6 +74,7 @@ export const GridProvider = ({ children }) => {
 
   const resetGrid = () => {
     setGrid(createBaseGrid())
+    resetRefs(gridRefs)
   }
 
 
@@ -70,6 +91,7 @@ export const GridProvider = ({ children }) => {
           handleAlgoChange,
           grid,
           setGrid,
+          gridRefs,
           editFlag,
           setEditFlag,
           run,

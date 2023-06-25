@@ -13,6 +13,7 @@ import { animateAlgo } from "../../utils/AnimateAlgo"
 function Board() {
   
   const { grid,
+          gridRefs,
           setGrid,
           gridWidth,
           editFlag,
@@ -24,24 +25,6 @@ function Board() {
           setRun,
           algorithm,
         } = useContext(GridContext)
-
-  // ---------------------------------------------------------------
-
-  const getRefArray = (_grid) => {
-    let refArray = []
-
-    grid.forEach((row) => {
-      row.forEach(() => {
-        refArray.push(useRef())
-      })
-    });
-
-    return refArray
-  }
-
-  // ---------------------------------------------------------------
-
-  const [gridRefs, setGridRefs] = useState(getRefArray(grid))
 
 
   useEffect(() => {
