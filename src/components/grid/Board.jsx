@@ -8,6 +8,7 @@ import { TbWeight } from "react-icons/tb"
 import { useState, useContext, useRef, useEffect } from "react"
 import { editBoard } from "../../utils/EditBoard"
 import { dfs } from "../../algorithms/Dfs"
+import { animateAlgo } from "../../utils/AnimateAlgo"
 
 function Board() {
   
@@ -45,7 +46,8 @@ function Board() {
 
   useEffect(() => {
     if (run == true && algorithm == "dfs") {
-      console.log(dfs(grid, startRef, targetRef)) 
+      const visitedNodesInOrder = dfs(grid, startRef, targetRef)
+      animateAlgo(visitedNodesInOrder, gridRefs)
       setRun(false)
     }
   }, [run, algorithm])
@@ -66,8 +68,9 @@ function Board() {
               gridCell.isWall ? classList.push("wall") : ""
           
               return (
-                <div key={i} 
+                <div key={i}
                      ref={ref} 
+                     id={`${y}-${x}`} 
                      className={classList.join(" ")}
                      onMouseDown={() => setEditFlag(true)}
                      onMouseUp={() => setEditFlag(false)}
