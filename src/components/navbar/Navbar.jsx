@@ -18,8 +18,8 @@ function Navbar() {
           setModeWeight,
           algorithm, 
           handleAlgoChange,
-          handleRunPress,
-          handleRestartPress
+          onRunClick,
+          resetGrid,
         } = useContext(GridContext)
   
   const selectStart = mode === "start" ? "selected" : ""
@@ -64,8 +64,8 @@ function Navbar() {
               <Option value="dfs">DFS</Option>
             </Select>
 
-            <button className="btn-custom btn-scale" onClick={handleRunPress}>Run</button>
-            <button className="btn-custom btn-scale" onClick={handleRestartPress}>Reset</button>
+            <button className="btn-custom btn-scale" onClick={onRunClick}>Run</button>
+            <button className="btn-custom btn-scale" onClick={resetGrid}>Reset</button>
           </div>
         </div>
       </div>

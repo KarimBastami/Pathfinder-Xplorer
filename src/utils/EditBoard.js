@@ -1,4 +1,4 @@
-export const editBoard = (grid, setGrid, mode, editFlag, startingCell, targetingCell, cell, x, y) => {
+export const editBoard = (grid, setGrid, mode, editFlag, startRef, targetRef, cell, x, y) => {
   if (!editFlag) return
   if (cell.isStart || cell.isTarget) return
 
@@ -18,7 +18,7 @@ export const editBoard = (grid, setGrid, mode, editFlag, startingCell, targeting
                         weight: 1 
                       }
 
-      startingCell.current = {x: x, y: y}
+      startRef.current = {x: x, y: y}
       setGrid(newGrid)
       break;
 
@@ -38,7 +38,7 @@ export const editBoard = (grid, setGrid, mode, editFlag, startingCell, targeting
                         weight: 1 
                       }
 
-      targetingCell.current = {x: x, y: y}
+      targetRef.current = {x: x, y: y}
       setGrid(newGrid)
       break;
     

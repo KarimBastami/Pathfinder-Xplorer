@@ -1,9 +1,9 @@
-export const createGrid = (width, height, startCell, targetCell) => {
+export const createGrid = (width, height, startPos, targetPos) => {
   let grid = []
-  const xStart = startCell.x
-  const yStart = startCell.y
-  const xTarget = targetCell.x
-  const yTarget = targetCell.y
+  const xStart = startPos.x
+  const yStart = startPos.y
+  const xTarget = targetPos.x
+  const yTarget = targetPos.y
 
   for (let rows = 0; rows < height; rows++) {
     let row = []

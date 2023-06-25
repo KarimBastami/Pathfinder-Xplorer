@@ -17,11 +17,11 @@ function Board() {
           editFlag,
           setEditFlag,
           mode,
-          startingCell,
-          targetingCell,
+          startRef,
+          targetRef,
           run,
+          setRun,
           algorithm,
-          handleRunPress
         } = useContext(GridContext)
 
   // ---------------------------------------------------------------
@@ -45,8 +45,8 @@ function Board() {
 
   useEffect(() => {
     if (run == true && algorithm == "dfs") {
-      console.log(dfs(grid, startingCell, targetingCell)) 
-      handleRunPress()
+      console.log(dfs(grid, startRef, targetRef)) 
+      setRun(false)
     }
   }, [run, algorithm])
 
@@ -71,7 +71,7 @@ function Board() {
                      className={classList.join(" ")}
                      onMouseDown={() => setEditFlag(true)}
                      onMouseUp={() => setEditFlag(false)}
-                     onMouseMove={() => editBoard(grid, setGrid, mode, editFlag, startingCell, targetingCell, gridCell, x, y )}>
+                     onMouseMove={() => editBoard(grid, setGrid, mode, editFlag, startRef, targetRef, gridCell, x, y )}>
 
                   {gridCell.isStart ? <HiOutlineLocationMarker className="text-h2" /> : null}
                   {gridCell.isTarget ? <BiTargetLock className="text-h2" /> : null}

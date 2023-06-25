@@ -7,13 +7,13 @@ export const GridProvider = ({ children }) => {
 
   const gridWidth = 45
   const gridHeight = 20
-  const startCell = {x: 0, y: 0}
-  const targetCell = {x: 4, y: 0}
-  const startingCell = useRef(startCell)
-  const targetingCell = useRef(targetCell)
+  const startPos = {x: 0, y: 0}
+  const targetPos = {x: 4, y: 0}
+  const startRef = useRef(startPos)
+  const targetRef = useRef(targetPos)
 
   const createBaseGrid = () => {
-    return createGrid(gridWidth, gridHeight, startCell, targetCell)
+    return createGrid(gridWidth, gridHeight, startRef.current, targetRef.current)
   }
 
   // ------------------------------------------------------------------
@@ -23,7 +23,6 @@ export const GridProvider = ({ children }) => {
   const [grid, setGrid] = useState(createBaseGrid())
   const [editFlag, setEditFlag] = useState(false)
   const [run, setRun] = useState(false)
-  const [restart, setRestart] = useState(false)
 
   // ------------------------------------------------------------------
 
@@ -47,23 +46,15 @@ export const GridProvider = ({ children }) => {
     setAlgorithm(e)
   }
 
-  const handleRestartPress = () => {
-    setRestart(!restart)
-  }
-
-  const handleRunPress = () => {
-    setRun(!run)
+  const onRunClick = () => {
+    if (algorithm != null) {
+      setRun(true)
+    }
   }
 
   const resetGrid = () => {
     setGrid(createBaseGrid())
   }
-
-
-
-  useEffect(() => {
-    resetGrid()
-  }, [restart])
 
 
   return ( 
@@ -82,11 +73,11 @@ export const GridProvider = ({ children }) => {
           editFlag,
           setEditFlag,
           run,
-          handleRunPress,
-          restart,
-          handleRestartPress,
-          startingCell,
-          targetingCell,
+          setRun,
+          onRunClick,
+          resetGrid,
+          startRef,
+          targetRef,
         }}>
 
         {children}
