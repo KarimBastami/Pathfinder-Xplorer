@@ -59,8 +59,9 @@ function Navbar() {
                     label="Select Algorithm" 
                     value={algorithm} 
                     onChange={handleAlgoChange}>
-              <Option value="dijkstra">Dijkstra</Option>
               <Option value="a*">A*</Option>
+              <Option value="bfs">BFS</Option>
+              <Option value="dfs">DFS</Option>
             </Select>
 
             <button className="btn-custom btn-scale" onClick={handleRunPress}>Run</button>

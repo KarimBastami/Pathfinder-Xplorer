@@ -55,6 +55,7 @@ export const editBoard = (grid, setGrid, mode, editFlag, startingCell, targeting
       setGrid(newGrid)
       break;
       
+      
     case "weight":
       var newGrid = grid.slice()
       

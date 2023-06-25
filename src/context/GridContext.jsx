@@ -7,8 +7,8 @@ export const GridProvider = ({ children }) => {
 
   const gridWidth = 45
   const gridHeight = 20
-  const startCell = {x: 10, y: 10}
-  const targetCell = {x: 25, y: 16}
+  const startCell = {x: 0, y: 0}
+  const targetCell = {x: 4, y: 0}
   const startingCell = useRef(startCell)
   const targetingCell = useRef(targetCell)
 
@@ -86,7 +86,7 @@ export const GridProvider = ({ children }) => {
           restart,
           handleRestartPress,
           startingCell,
-          targetingCell
+          targetingCell,
         }}>
 
         {children}

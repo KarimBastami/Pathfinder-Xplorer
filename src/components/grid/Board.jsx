@@ -5,8 +5,9 @@ import GridContext from "../../context/GridContext"
 import { HiOutlineLocationMarker } from "react-icons/hi"
 import { BiTargetLock } from "react-icons/bi"
 import { TbWeight } from "react-icons/tb"
-import { useState, useContext, useRef } from "react"
+import { useState, useContext, useRef, useEffect } from "react"
 import { editBoard } from "../../utils/EditBoard"
+import { dfs } from "../../algorithms/Dfs"
 
 function Board() {
   
@@ -17,7 +18,10 @@ function Board() {
           setEditFlag,
           mode,
           startingCell,
-          targetingCell
+          targetingCell,
+          run,
+          algorithm,
+          handleRunPress
         } = useContext(GridContext)
 
   // ---------------------------------------------------------------
@@ -37,6 +41,14 @@ function Board() {
   // ---------------------------------------------------------------
 
   const [gridRefs, setGridRefs] = useState(getRefArray(grid))
+
+
+  useEffect(() => {
+    if (run == true && algorithm == "dfs") {
+      console.log(dfs(grid, startingCell, targetingCell)) 
+      handleRunPress()
+    }
+  }, [run, algorithm])
 
   
   return (
