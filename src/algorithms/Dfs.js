@@ -38,4 +38,6 @@ export const dfs = (grid, startRef, targetRef) => {
       }
     }
   }
+
+  return visitedNodesInOrder
 }
