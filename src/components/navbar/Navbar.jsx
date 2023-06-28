@@ -96,7 +96,7 @@ function Navbar() {
             </Select>
 
             <button id="run-btn" className="btn-custom btn-scale" onClick={onRunClick} disabled={btnDisabled}>Run</button>
-            <button id="reset-btn" className="btn-custom btn-scale" onClick={resetGrid}>Reset</button>
+            <button id="reset-btn" className="btn-custom btn-scale" onClick={resetGrid} disabled={btnDisabled}>Reset</button>
           </div>
         </div>
       </div>
