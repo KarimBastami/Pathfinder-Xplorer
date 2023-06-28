@@ -32,14 +32,14 @@ function Navbar() {
 
   // ---------------------------------------------------------------
 
-  const enableRunBtn = () => {
-    const runBtn = document.getElementById("run-btn")
+  const enableBtn = (type) => {
+    const runBtn = document.getElementById(`${type}-btn`)
     runBtn.classList.remove("disabled")
     setBtnDisabled(false)
   }
   
-  const disableRunBtn = () => {
-    const runBtn = document.getElementById("run-btn")
+  const disableBtn = (type) => {
+    const runBtn = document.getElementById(`${type}-btn`)
     runBtn.classList.add("disabled")
     setBtnDisabled(true)
   }
@@ -47,7 +47,14 @@ function Navbar() {
 // --------------------------------------------------------------
 
   useEffect (() => {
-    run ? disableRunBtn() : enableRunBtn()
+    if (run) {
+      disableBtn("run") 
+      disableBtn("reset") 
+    }
+    else {
+      enableBtn("run")
+      enableBtn("reset")
+    }
   }, [run])
 
 
