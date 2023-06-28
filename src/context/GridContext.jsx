@@ -7,8 +7,8 @@ export const GridProvider = ({ children }) => {
 
   const gridWidth = 45
   const gridHeight = 20
-  const startPos = {x: 0, y: 0}
-  const targetPos = {x: 4, y: 0}
+  const startPos = {x: 10, y: 3}
+  const targetPos = {x: 33, y: 10}
   const startRef = useRef(startPos)
   const targetRef = useRef(targetPos)
 
@@ -73,7 +73,7 @@ export const GridProvider = ({ children }) => {
 
   const onRunClick = () => {
     if (algorithm != null) {
-      resetGrid()
+      resetRefs(gridRefs)
       setRun(true)
     }
   }

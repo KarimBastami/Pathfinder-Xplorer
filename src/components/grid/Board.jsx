@@ -8,6 +8,7 @@ import { TbWeight } from "react-icons/tb"
 import { useState, useContext, useRef, useEffect } from "react"
 import { editBoard } from "../../utils/EditBoard"
 import { dfs } from "../../algorithms/Dfs"
+import { bfs } from "../../algorithms/Bfs"
 import { animateAlgo } from "../../utils/AnimateAlgo"
 
 function Board() {
@@ -36,7 +37,16 @@ function Board() {
       }
     }
 
+    const runBfs = async () => {
+      if (run == true && algorithm == "bfs") {
+        const visitedNodesInOrder = bfs(grid, startRef, targetRef)
+        await animateAlgo(visitedNodesInOrder, gridRefs, setRun)
+        setRun(false)
+      }
+    }
+
     runDfs()
+    runBfs()
   }, [run, algorithm])
   
 
