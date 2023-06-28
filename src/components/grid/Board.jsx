@@ -28,14 +28,18 @@ function Board() {
 
 
   useEffect(() => {
-    if (run == true && algorithm == "dfs") {
-      const visitedNodesInOrder = dfs(grid, startRef, targetRef)
-      animateAlgo(visitedNodesInOrder, gridRefs)
-      setRun(false)
+    const runDfs = async () => {
+      if (run == true && algorithm == "dfs") {
+        const visitedNodesInOrder = dfs(grid, startRef, targetRef)
+        await animateAlgo(visitedNodesInOrder, gridRefs, setRun)
+        setRun(false)
+      }
     }
-  }, [run, algorithm])
 
+    runDfs()
+  }, [run, algorithm])
   
+
   return (
     <div id="board" className="p-8 pt-10">
       <div className="container">

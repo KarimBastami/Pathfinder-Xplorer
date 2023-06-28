@@ -1,6 +1,6 @@
 import "./Navbar.css"
 
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import { Select, Option } from "@material-tailwind/react"
 import { HiOutlineLocationMarker } from "react-icons/hi"
@@ -20,12 +20,36 @@ function Navbar() {
           handleAlgoChange,
           onRunClick,
           resetGrid,
+          run,
         } = useContext(GridContext)
   
+  const [btnDisabled, setBtnDisabled] = useState(false)
+
   const selectStart = mode === "start" ? "selected" : ""
   const selectTarget = mode === "target" ? "selected" : ""
   const selectWall = mode === "wall" ? "selected" : ""
   const selectWeight = mode === "weight" ? "selected" : ""
+
+  // ---------------------------------------------------------------
+
+  const enableRunBtn = () => {
+    const runBtn = document.getElementById("run-btn")
+    runBtn.classList.remove("disabled")
+    setBtnDisabled(false)
+  }
+  
+  const disableRunBtn = () => {
+    const runBtn = document.getElementById("run-btn")
+    runBtn.classList.add("disabled")
+    setBtnDisabled(true)
+  }
+
+// --------------------------------------------------------------
+
+  useEffect (() => {
+    run ? disableRunBtn() : enableRunBtn()
+  }, [run])
+
 
   return (
     <nav id="navbar" className="p-4">
@@ -64,8 +88,8 @@ function Navbar() {
               <Option value="dfs">DFS</Option>
             </Select>
 
-            <button className="btn-custom btn-scale" onClick={onRunClick}>Run</button>
-            <button className="btn-custom btn-scale" onClick={resetGrid}>Reset</button>
+            <button id="run-btn" className="btn-custom btn-scale" onClick={onRunClick} disabled={btnDisabled}>Run</button>
+            <button id="reset-btn" className="btn-custom btn-scale" onClick={resetGrid}>Reset</button>
           </div>
         </div>
       </div>

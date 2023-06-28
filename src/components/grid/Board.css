@@ -9,15 +9,20 @@
   gap: 0.8px;
 }
 
-.board-grid .cell{
+.board-grid .cell {
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--neutral);
 }
 
+.disabled {
+  background: var(--disabled) !important;
+  color: var(--text-secondary);
+}
+
 .wall {
-  background: var(--dark-neutral) !important
+  background: var(--dark-neutral) !important;
 }
 
 .visited {

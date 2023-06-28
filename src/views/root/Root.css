@@ -46,6 +46,7 @@
   --nav-shadow-2: rgba(20, 184, 166, 0.15);
 
   --nav-link-hover: rgba(20, 184, 166, 0.3);
+  --disabled: #DC143C;
 
   --neutral: #fcfcfc; 
   --accent: #5bcdc1;

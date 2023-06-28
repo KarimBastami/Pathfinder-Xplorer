@@ -66,15 +66,16 @@ export const GridProvider = ({ children }) => {
     setAlgorithm(e)
   }
 
-  const onRunClick = () => {
-    if (algorithm != null) {
-      setRun(true)
-    }
-  }
-
   const resetGrid = () => {
     setGrid(createBaseGrid())
     resetRefs(gridRefs)
+  }
+
+  const onRunClick = () => {
+    if (algorithm != null) {
+      resetGrid()
+      setRun(true)
+    }
   }
 
 

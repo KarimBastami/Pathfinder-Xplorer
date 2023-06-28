@@ -1,17 +1,25 @@
-export const animateAlgo = (visitedNodes, refArray) => {
-  visitedNodes.forEach((node, i) => {
-    if (i === visitedNodes.length - 1) {}
+export const animateAlgo = async (visitedNodes, refArray, setRun) => {
+  return new Promise((resolve, reject) => {
+    const animationDuration = 10
 
-    setTimeout(() => {
-      if (!node.isStart && !node.isTarget) {
-        refArray.forEach((ref) => {
-          const refNode = ref.current
-
-          if (refNode.getAttribute("id") === `${node.y}-${node.x}`) {
-            refNode.classList.add("visited")
-          }
-        })
+    visitedNodes.forEach((node, i) => {
+      if (i === visitedNodes.length - 1) {
+        setTimeout(() => {
+          resolve()
+        }, animationDuration * i)
       }
-    }, 10 * i);  
-  });
+  
+      setTimeout(() => {
+        if (!node.isStart && !node.isTarget) {
+          refArray.forEach((ref) => {
+            const refNode = ref.current
+  
+            if (refNode.getAttribute("id") === `${node.y}-${node.x}`) {
+              refNode.classList.add("visited")
+            }
+          })
+        }
+      }, animationDuration * i);
+    });
+  })
 }
