@@ -1,6 +1,7 @@
-export const bfs = (grid, startRef, targetRef) => {
+export const bfs = (grid, setGrid, startRef, targetRef) => {
   let nodeQueue = []
   let visitedNodesInOrder = []
+  let tempGrid = [...grid]
 
   const startPos = startRef.current
   const targetPos = targetRef.current
@@ -19,25 +20,54 @@ export const bfs = (grid, startRef, targetRef) => {
 
       //check if top neighbor exists
       if (currentNode.y > 0) {
-        nodeQueue.push(grid[currentNode.y - 1][currentNode.x])
+        const nextY = currentNode.y - 1
+        const nextX = currentNode.x
+
+        if (tempGrid[nextY][nextX].prevNode === null && !tempGrid[nextY][nextX].isStart) {
+          tempGrid[nextY][nextX].prevNode = currentNode
+        }
+
+        nodeQueue.push(grid[nextY][nextX])
       }
 
       //check if bottom neighbor exists
       if (currentNode.y < grid.length - 1) {
-        nodeQueue.push(grid[currentNode.y + 1][currentNode.x])
+        const nextY = currentNode.y + 1
+        const nextX = currentNode.x
+
+        if (tempGrid[nextY][nextX].prevNode === null && !tempGrid[nextY][nextX].isStart) {
+          tempGrid[nextY][nextX].prevNode = currentNode
+        }
+
+        nodeQueue.push(grid[nextY][nextX])
       }
 
       //check if right neighbor exists
       if (currentNode.x < grid[0].length - 1) {
-        nodeQueue.push(grid[currentNode.y][currentNode.x + 1])
+        const nextY = currentNode.y
+        const nextX = currentNode.x + 1
+
+        if (tempGrid[nextY][nextX].prevNode === null && !tempGrid[nextY][nextX].isStart) {
+          tempGrid[nextY][nextX].prevNode = currentNode
+        }
+
+        nodeQueue.push(grid[nextY][nextX])
       }
 
       //check if left neighbor exists
       if (currentNode.x > 0) {
-        nodeQueue.push(grid[currentNode.y][currentNode.x - 1])
+        const nextY = currentNode.y
+        const nextX = currentNode.x - 1
+
+        if (tempGrid[nextY][nextX].prevNode === null && !tempGrid[nextY][nextX].isStart) {
+          tempGrid[nextY][nextX].prevNode = currentNode
+        }
+
+        nodeQueue.push(grid[nextY][nextX])
       }
     }
   }
 
+  setGrid(tempGrid)
   return visitedNodesInOrder
 }
