@@ -23,11 +23,7 @@ export const bfs = (grid, setGrid, startRef, targetRef) => {
         const nextY = currentNode.y - 1
         const nextX = currentNode.x
 
-        if (tempGrid[nextY][nextX].prevNode === null && !tempGrid[nextY][nextX].isStart) {
-          tempGrid[nextY][nextX].prevNode = currentNode
-        }
-
-        nodeQueue.push(grid[nextY][nextX])
+        setPrevAndPushNeighbor(nextY, nextX, tempGrid, nodeQueue, currentNode)
       }
 
       //check if bottom neighbor exists
@@ -35,11 +31,7 @@ export const bfs = (grid, setGrid, startRef, targetRef) => {
         const nextY = currentNode.y + 1
         const nextX = currentNode.x
 
-        if (tempGrid[nextY][nextX].prevNode === null && !tempGrid[nextY][nextX].isStart) {
-          tempGrid[nextY][nextX].prevNode = currentNode
-        }
-
-        nodeQueue.push(grid[nextY][nextX])
+        setPrevAndPushNeighbor(nextY, nextX, tempGrid, nodeQueue, currentNode)
       }
 
       //check if right neighbor exists
@@ -47,11 +39,7 @@ export const bfs = (grid, setGrid, startRef, targetRef) => {
         const nextY = currentNode.y
         const nextX = currentNode.x + 1
 
-        if (tempGrid[nextY][nextX].prevNode === null && !tempGrid[nextY][nextX].isStart) {
-          tempGrid[nextY][nextX].prevNode = currentNode
-        }
-
-        nodeQueue.push(grid[nextY][nextX])
+        setPrevAndPushNeighbor(nextY, nextX, tempGrid, nodeQueue, currentNode)
       }
 
       //check if left neighbor exists
@@ -59,15 +47,22 @@ export const bfs = (grid, setGrid, startRef, targetRef) => {
         const nextY = currentNode.y
         const nextX = currentNode.x - 1
 
-        if (tempGrid[nextY][nextX].prevNode === null && !tempGrid[nextY][nextX].isStart) {
-          tempGrid[nextY][nextX].prevNode = currentNode
-        }
-
-        nodeQueue.push(grid[nextY][nextX])
+        setPrevAndPushNeighbor(nextY, nextX, tempGrid, nodeQueue, currentNode)
       }
     }
   }
 
   setGrid(tempGrid)
   return visitedNodesInOrder
+}
+
+
+const setPrevAndPushNeighbor = (nextY, nextX, tempGrid, nodeQueue, currentNode) => {
+  const nextNode = tempGrid[nextY][nextX]
+
+  if (nextNode.prevNode === null && !nextNode.isStart) {
+    nextNode.prevNode = currentNode
+  }
+
+  nodeQueue.push(nextNode)
 }
