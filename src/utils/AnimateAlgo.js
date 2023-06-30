@@ -21,9 +21,10 @@ export const animateAlgo = async (visitedNodes, nodesInShortestPath, refArray) =
           })
         }
       }, animationDuration * i);
-    });
+    })
   })
 }
+
 
 const animateShortestPath = async (nodesInShortestPath, refArray, animationDuration) => {
   return new Promise((resolve, reject) => {
@@ -46,5 +47,7 @@ const animateShortestPath = async (nodesInShortestPath, refArray, animationDurat
         }
       }, animationDuration * i);
     })
+
+    resolve()
   })
 }

@@ -31,7 +31,8 @@ export const GridProvider = ({ children }) => {
   const resetRefs = (_gridRefs) => {
     _gridRefs.forEach((ref) => {
       const refNode = ref.current
-      refNode.classList.remove("visited")      
+      refNode.classList.remove("visited") 
+      refNode.classList.remove("shortest-path")     
     })
   }
 
