@@ -5,7 +5,7 @@ export const animateAlgo = async (visitedNodes, nodesInShortestPath, refArray) =
     visitedNodes.forEach((node, i) => {
       if (i === visitedNodes.length - 1) {
         setTimeout(async () => {
-          await animateShortestPath(nodesInShortestPath, refArray, animationDuration)
+          await animateShortestPath(nodesInShortestPath, refArray)
           resolve()
         }, animationDuration * i)
       }
@@ -26,8 +26,10 @@ export const animateAlgo = async (visitedNodes, nodesInShortestPath, refArray) =
 }
 
 
-const animateShortestPath = async (nodesInShortestPath, refArray, animationDuration) => {
+const animateShortestPath = async (nodesInShortestPath, refArray) => {
   return new Promise((resolve, reject) => {
+    const animationDuration = 30
+
     nodesInShortestPath.forEach((node, i) => {
       if (i == nodesInShortestPath.length - 1){
         setTimeout(() => {
