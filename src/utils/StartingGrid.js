@@ -17,6 +17,7 @@ export const createGrid = (width, height, startPos, targetPos) => {
         isWall: false,
         weight: 1,
         prevNode: null,
+        fCost: null
       })
     }
     grid.push(row)

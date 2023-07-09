@@ -9,6 +9,7 @@ import { useContext, useEffect } from "react"
 import { editBoard } from "../../utils/EditBoard"
 import { dfs } from "../../algorithms/Dfs"
 import { bfs } from "../../algorithms/Bfs"
+import { aStar } from "../../algorithms/Star"
 import { animateAlgo } from "../../utils/AnimateAlgo"
 import { getNodesInShortestPath } from "../../utils/getNodesInShortesPath"
 
@@ -49,8 +50,19 @@ function Board() {
       }
     }
 
+    const runAStar = async () => {
+      if (run && algorithm == "a*") {
+        const visitedNodesInOrder = aStar(grid, setGrid, startRef, targetRef)
+        const targetNode = grid[targetRef.current.y][targetRef.current.x]
+        const nodesInShortestPath = getNodesInShortestPath(targetNode)
+        await animateAlgo(visitedNodesInOrder, nodesInShortestPath, gridRefs)
+        setRun(false)
+      }
+    }
+
     runDfs()
     runBfs()
+    runAStar()
 
   }, [run, algorithm])
   
