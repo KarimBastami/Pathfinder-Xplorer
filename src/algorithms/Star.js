@@ -58,8 +58,6 @@ export const aStar = (grid, setGrid, startRef, targetRef) => {
 
       // add current node to visited Array
       visitedNodesInOrder.push(currentNode)
-
-      console.log("x: " + currentNode.x + " y: " + currentNode.y + " FCost: " + currentNode.fCost)
     }
   }
 
