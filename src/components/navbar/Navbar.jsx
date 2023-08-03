@@ -65,7 +65,7 @@ function Navbar() {
           <h1 id="nav-logo" className="text-h3">Pathfinder Xplorer</h1>
 
           <div id="nav-links" className="text-shrimp">
-            <ul className="grid grid-cols-4">
+            <ul className="grid grid-cols-3">
               <li id="set-start-btn" className={`${selectStart}`} onClick={setModeStart}>
                 <HiOutlineLocationMarker className="text-h3 mx-auto mb-1" />
                 Set Start
@@ -78,10 +78,10 @@ function Navbar() {
                 <TbWall className="text-h3 mx-auto mb-1" />
                 Add Wall
               </li>
-              <li id="add-weight-btn" className={`${selectWeight}`} onClick={setModeWeight}>
+              {/* <li id="add-weight-btn" className={`${selectWeight}`} onClick={setModeWeight}>
                 <TbWeight className="text-h3 mx-auto mb-1" />
                 Add Weight
-              </li>
+              </li> */}
             </ul>
           </div>
 
