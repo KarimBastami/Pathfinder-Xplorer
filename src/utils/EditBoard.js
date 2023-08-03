@@ -45,11 +45,24 @@ export const editBoard = (grid, setGrid, mode, editFlag, startRef, targetRef, ce
 
     case "wall":
       var newGrid = grid.slice()
-      
+
       newGrid[y][x] = { ...cell, 
                         isStart: false, 
                         isTarget: false,
                         isWall: true,
+                        weight: 1 
+                      }
+      setGrid(newGrid)
+      break;
+
+
+    case "eraser":
+      var newGrid = grid.slice()
+
+      newGrid[y][x] = { ...cell, 
+                        isStart: false, 
+                        isTarget: false,
+                        isWall: false,
                         weight: 1 
                       }
       setGrid(newGrid)

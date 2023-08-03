@@ -6,6 +6,7 @@ import { Select, Option } from "@material-tailwind/react"
 import { HiOutlineLocationMarker } from "react-icons/hi"
 import { BiTargetLock } from "react-icons/bi"
 import { TbWall, TbWeight } from "react-icons/tb"
+import { BiEraser } from "react-icons/bi"
 
 import GridContext from "../../context/GridContext"
 
@@ -16,6 +17,7 @@ function Navbar() {
           setModeTarget,
           setModeWall,
           setModeWeight,
+          setModeEraser,
           algorithm, 
           handleAlgoChange,
           onRunClick,
@@ -28,6 +30,7 @@ function Navbar() {
   const selectStart = mode === "start" ? "selected" : ""
   const selectTarget = mode === "target" ? "selected" : ""
   const selectWall = mode === "wall" ? "selected" : ""
+  const selectEraser = mode === "eraser" ? "selected" : ""
   const selectWeight = mode === "weight" ? "selected" : ""
 
   // ---------------------------------------------------------------
@@ -65,7 +68,7 @@ function Navbar() {
           <h1 id="nav-logo" className="text-h3">Pathfinder Xplorer</h1>
 
           <div id="nav-links" className="text-shrimp">
-            <ul className="grid grid-cols-3">
+            <ul className="grid grid-cols-4">
               <li id="set-start-btn" className={`${selectStart}`} onClick={setModeStart}>
                 <HiOutlineLocationMarker className="text-h3 mx-auto mb-1" />
                 Set Start
@@ -77,6 +80,10 @@ function Navbar() {
               <li id="add-wall-btn" className={`${selectWall}`} onClick={setModeWall}>
                 <TbWall className="text-h3 mx-auto mb-1" />
                 Add Wall
+              </li>
+              <li id="add-weight-btn" className={`${selectEraser}`} onClick={setModeEraser}>
+                <BiEraser className="text-h3 mx-auto mb-1" />
+                Eraser
               </li>
               {/* <li id="add-weight-btn" className={`${selectWeight}`} onClick={setModeWeight}>
                 <TbWeight className="text-h3 mx-auto mb-1" />

@@ -63,6 +63,10 @@ export const GridProvider = ({ children }) => {
     mode === "weight" ? setMode(null) : setMode("weight")
   }
 
+  const setModeEraser = () => { 
+    mode === "eraser" ? setMode(null) : setMode("eraser")
+  }
+
   const handleAlgoChange = (e) => {
     setAlgorithm(e)
   }
@@ -89,6 +93,7 @@ export const GridProvider = ({ children }) => {
           setModeTarget,
           setModeWall,
           setModeWeight,
+          setModeEraser,
           algorithm,
           handleAlgoChange,
           grid,
