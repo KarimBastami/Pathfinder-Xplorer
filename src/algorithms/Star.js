@@ -11,7 +11,6 @@ export const aStar = (grid, setGrid, startRef, targetRef) => {
   openNodes.push(startNode)
 
   while (openNodes.length > 0) {
-    console.log(openNodes)
     const currentNode = openNodes.shift()
 
     if (currentNode == targetNode) return visitedNodesInOrder
@@ -23,7 +22,7 @@ export const aStar = (grid, setGrid, startRef, targetRef) => {
         const nextY = currentNode.y - 1
         const nextX = currentNode.x
 
-        updateFCost(tempGrid, startNode, targetNode, currentNode)
+        updateFCost(tempGrid, startNode, targetNode, nextY, nextX)
         setPrevAndPushNeighbor(nextY, nextX, tempGrid, openNodes, visitedNodesInOrder, currentNode)
       }
 
@@ -32,7 +31,7 @@ export const aStar = (grid, setGrid, startRef, targetRef) => {
         const nextY = currentNode.y + 1
         const nextX = currentNode.x
 
-        updateFCost(tempGrid, startNode, targetNode, currentNode)
+        updateFCost(tempGrid, startNode, targetNode, nextY, nextX)
         setPrevAndPushNeighbor(nextY, nextX, tempGrid, openNodes, visitedNodesInOrder, currentNode)
       }
 
@@ -41,7 +40,7 @@ export const aStar = (grid, setGrid, startRef, targetRef) => {
         const nextY = currentNode.y
         const nextX = currentNode.x + 1
 
-        updateFCost(tempGrid, startNode, targetNode, currentNode)
+        updateFCost(tempGrid, startNode, targetNode, nextY, nextX)
         setPrevAndPushNeighbor(nextY, nextX, tempGrid, openNodes, visitedNodesInOrder, currentNode)
       }
 
@@ -50,7 +49,7 @@ export const aStar = (grid, setGrid, startRef, targetRef) => {
         const nextY = currentNode.y
         const nextX = currentNode.x - 1
 
-        updateFCost(tempGrid, startNode, targetNode, currentNode)
+        updateFCost(tempGrid, startNode, targetNode, nextY, nextX)
         setPrevAndPushNeighbor(nextY, nextX, tempGrid, openNodes, visitedNodesInOrder, currentNode)
       }
 
@@ -60,6 +59,7 @@ export const aStar = (grid, setGrid, startRef, targetRef) => {
       // add current node to visited Array
       visitedNodesInOrder.push(currentNode)
 
+      console.log("x: " + currentNode.x + " y: " + currentNode.y + " FCost: " + currentNode.fCost)
     }
   }
 
@@ -74,8 +74,8 @@ const calcFCost = (startNode, targetNode, currentNode) => {
 
   const gX = Math.abs(startNode.x - currentNode.x)
   const gY = Math.abs(startNode.y - currentNode.y)
-  const hX = Math.abs(startNode.x - targetNode.x)
-  const hY = Math.abs(startNode.y - targetNode.y)
+  const hX = Math.abs(currentNode.x - targetNode.x)
+  const hY = Math.abs(currentNode.y - targetNode.y)
 
   gCost = gX + gY
   hCost = hX + hY
@@ -84,12 +84,11 @@ const calcFCost = (startNode, targetNode, currentNode) => {
 }
 
 
-const updateFCost = (tempGrid, startNode, targetNode, currentNode) => {
-  const x = currentNode.x
-  const y = currentNode.y
-  const newFCost = calcFCost(startNode, targetNode, currentNode)
+const updateFCost = (tempGrid, startNode, targetNode, nextY, nextX) => {
+  const nextNode = tempGrid[nextY][nextX]
+  const newFCost = calcFCost(startNode, targetNode, nextNode)
 
-  tempGrid[y][x].fCost = newFCost
+  tempGrid[nextY][nextX].fCost = newFCost
 }
 
 
