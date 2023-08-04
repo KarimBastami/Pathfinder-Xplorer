@@ -4,23 +4,25 @@ import './Root.css'
 import Home from '../home/Home'
 import Mobile from '../mobile/Mobile'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Route, Routes, useNavigate } from "react-router-dom"
+import { useWindowSize } from '@uidotdev/usehooks'
+
 
 
 function App() {
 
-  const [screenSize, setScreenSize] = useState(window.innerWidth)
+  const windowSize = useWindowSize()
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (screenSize < 1024) {
+    if (windowSize.width < 1024) {
       navigate("/mobile")
     }
     else {
       navigate("/")
     }
-  }, [screenSize])
+  }, [windowSize])
 
   return (
     <Routes>
