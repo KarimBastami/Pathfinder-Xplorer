@@ -15,7 +15,7 @@ function App() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (windowSize.width < 1024 || windowSize.height < 675) {
+    if (windowSize.width < 1024 || windowSize.height < 500) {
       navigate("/mobile")
     }
     else {
