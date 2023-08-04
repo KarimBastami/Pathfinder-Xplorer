@@ -9,20 +9,20 @@ import { Route, Routes, useNavigate } from "react-router-dom"
 import { useWindowSize } from '@uidotdev/usehooks'
 
 
-
 function App() {
 
   const windowSize = useWindowSize()
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (windowSize.width < 1024) {
+    if (windowSize.width < 1024 || windowSize.height < 675) {
       navigate("/mobile")
     }
     else {
       navigate("/")
     }
   }, [windowSize])
+
 
   return (
     <Routes>
