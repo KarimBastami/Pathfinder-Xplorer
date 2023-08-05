@@ -32,7 +32,7 @@ function ExternalLinks() {
             </SpeedDialAction>
 
             <SpeedDialAction className="h-14 w-14 shadow">
-              <a href="https://karimbastami.com" target="_blank" rel="noreferrer">
+              <a href="https://github.com/KarimBastami/Pathfinder-Xplorer" target="_blank" rel="noreferrer">
                 <CodeBracketIcon className="h-6 w-6" />
               </a>
             </SpeedDialAction>
