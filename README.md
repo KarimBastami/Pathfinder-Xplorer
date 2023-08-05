@@ -18,7 +18,7 @@ A pathfinding algorithm simulator that utilizes React to visually demonstrate ho
   - DFS
 - Run button (to start visualization)
 - Reset button (to reset grid)
-- Shortest path visulization (after the algorithm finishes visualizing the shortest path from the start to the target is highlighted)
+- Shortest path visualization (after the algorithm finishes visualizing the shortest path from the start to the target is highlighted)
 
 ## How To Run
 - Make sure Nodejs and NPM are installed on your device
@@ -31,6 +31,8 @@ npm install
 
 npm run dev
 ```
+## Disclaimer
+This application is unavailable on mobile & tablet sized devices. Due to the grid and the nature of the implemented drag mechanics, a mobile version would not provide a seamless UX experience and therefore was disabled
 
 ## Dependencies & Technologies Used
 - ReactJS (scaffolded using Vite)
